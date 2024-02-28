@@ -1,13 +1,30 @@
 <script>
-  import Counter from './lib/Counter.svelte'
+  import { contentMeta, randomItemFrom } from './stores/contentStore.js'
+  let localContentMeta
+  let idea = ''
+
+  contentMeta.subscribe((updatedContentMeta) => {
+    localContentMeta = updatedContentMeta
+  })
+
+  function handleGenerateIdea(category, label) {
+    idea = randomItemFrom(category, label)
+  }
 </script>
 
 <main>
   <h1>Idégenerator</h1>
 
-  <div class="card">
-    <Counter />
-  </div>
+  {#each localContentMeta || [] as category}
+    <div class="card">
+      <h2>{category.name}</h2>
+      {#each category.labels || [] as label}
+        <a on:click={handleGenerateIdea(category.name, label)}>{label}</a>
+        <br />
+      {/each}
+      <div>{idea}</div>
+    </div>
+  {/each}
 </main>
 
 <style>
