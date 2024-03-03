@@ -41,6 +41,10 @@ h1 {
   color:dimgrey
 }
 
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 #gallery{
   display: flex;
 	flex-wrap: wrap;
@@ -73,13 +77,16 @@ h1 {
 }
 
 .categoryLabel {
+  color: #213547;
+  padding: 0.2em 0.4em;
   font-size: 1.5em;
   font-weight: 500;
   margin-bottom: 0.5em;
 }
 
 .categoryLabel:hover {
-  background-color: aqua;
+  border-radius: 3px;
+  background-color: rgba(110, 110, 96, 0.455);
 }
 
 #drawn-card {
@@ -96,9 +103,6 @@ h1 {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
   }
   button {
     background-color: #f9f9f9;

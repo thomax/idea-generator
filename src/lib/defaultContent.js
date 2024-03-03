@@ -28,7 +28,7 @@ export const defaultContent = [
         ]
       },
       {
-        label: 'Bruker / Brukerbehov',
+        label: 'Bruker',
         alternatives: [
           'Hvordan løser denne oppfinnelsen et problem?',
           'Forklar et scenario hvor oppfinnelsen er i bruk.',
