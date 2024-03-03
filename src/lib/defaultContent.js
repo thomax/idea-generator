@@ -1,10 +1,10 @@
 export const defaultContent = [
   {
     name: 'Spørsmål',
-    alternatives: [
+    variants: [
       {
         label: 'Funksjon',
-        questions: [
+        alternatives: [
           'Hva gjøre oppfinnelsen?',
           'Kan man legge til flere funksjoner til oppfinnelsen?',
           'Kan oppfinnelsen brukes på en enklere eller mer komplisert måte?',
@@ -19,7 +19,7 @@ export const defaultContent = [
       },
       {
         label: 'Problem',
-        questions: [
+        alternatives: [
           'På hvilke andre måter kunne den fungert?',
           'Hvem har problemet oppfinnelsen løser?',
           'Hva kan gå galt? Se for deg et problem som kan oppstå når oppfinnelsen er i bruk, hvordan løser dere problemet?',
@@ -29,7 +29,7 @@ export const defaultContent = [
       },
       {
         label: 'Bruker / Brukerbehov',
-        questions: [
+        alternatives: [
           'Hvordan løser denne oppfinnelsen et problem?',
           'Forklar et scenario hvor oppfinnelsen er i bruk.',
           'Problematiser oppfinnelsen: Hva hvis «sånn og sånn», hva må da skje med oppfinnelsen?',
@@ -38,5 +38,37 @@ export const defaultContent = [
         ]
       }
     ]
+  },
+  {
+    name: 'Ord',
+    variants: [
+      {
+        label: 'Verb',
+        alternatives: ['Besvime', 'Blåse', 'Bytte', 'Etse', 'Fange', 'Flomme', 'Rense', 'Resirkulere', 'Samarbeide', 'Redusere', 'Ødelegge', 'Sanke', 'Skrive', 'Slukke', 'Sortere', 'Hagle', 'Høste', 'Knuse', 'Lukte', 'Lyse', 'Smelte', 'Knekke', 'Låne', 'Mangle', 'Minke', 'Sprøyte', 'Synke', 'Temperere', 'Tilpasse', 'Øke', 'Utvikle', 'Velte', 'Stige', 'Tørke', 'Visne', 'Vokse', 'Puste', 'Forurense', 'Gjenbruke', 'Fornye', 'Forsure', 'Forgifte', 'Spare', 'Spire', 'Fryse', 'Forbrenne', 'Pleie', 'Produsere', 'Telle', 'Varme', 'Samle', 'Forsvinne', 'Spise', 'Vaske', 'Farge', 'Sløse']
+      },
+      {
+        label: 'Substantiv',
+        alternatives: [
+          'arter', 'atmosfære', 'bier',
+          'byer', 'bølger', 'drivhuseffekt',
+          'eksos', 'jordklode', 'belastning',
+          'co2', 'jungel', 'konsekvens',
+          'korallrev', 'kulde', 'lavtrykk',
+          'luft', 'sur', 'nedbør',
+          'sykdom', 'søppel', 'søppel-sortering',
+          'teknikk', 'panda', 'plante',
+          'plast', 'syklus', 'temperatur',
+          'poler', 'promp', 'rase',
+          'regn', 'restavfall', 'risiko',
+          'samarbeid', 'varme', 'varmegrader',
+          'vind', 'regnskog', 'vanndamp',
+          'vær', 'våtmark', 'økning',
+          'økologisk', 'mat', 'is',
+          'isbjørn', 'fauna', 'fabrikker',
+          'energi', 'ørken'
+        ]
+      }
+    ]
+
   }
 ]
