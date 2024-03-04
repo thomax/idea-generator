@@ -1,23 +1,24 @@
 <script>
-  import { afterUpdate } from 'svelte'
+  import { onMount } from 'svelte'
   import { contentMeta, randomItemFrom } from './stores/contentStore.js'
   import { random } from './lib/utils.js'
   let localContentMeta
   let result = ''
-  const drawnCardX = '35%'
-  const drawnCardY = '-380px'
-  let curretRotation = 0
+  const drawnCardX = '30%'
+  const drawnCardY = '0px'
+  let drawnCardTransform = ''
 
   contentMeta.subscribe((updatedContentMeta) => {
     localContentMeta = updatedContentMeta
   })
 
-  afterUpdate(() => {
+  onMount(() => {
     const elements = document.querySelectorAll('.card')
+    const randomImage = `url("../src/assets/card-0${random(1, 5)}.jpg")`
 
     elements.forEach((element) => {
       // @ts-ignore
-      element.style.backgroundImage = `url("../src/assets/card-0${random(1, 5)}.jpg")`
+      element.style.backgroundImage = randomImage
     })
   })
 
@@ -33,22 +34,22 @@
   const playEnterAnimation = () => {
     const element = document.getElementById('drawn-card')
     element.style.visibility = 'visible'
-    element.style.display = 'block'
+    element.style.display = 'grid'
 
-    const startX = random(-1000, 1600)
-    const startY = -random(600, 1400)
-    const endY = -380
+    const startX = random(-1000, 1500)
+    const startY = -random(500, 1000)
     const direction = Math.random() > 0.5 ? 1 : -1
     const degrees = Math.random() > 0.5 ? 720 : 360
     const duration = random(2000, 4000)
-    curretRotation = random(-5, 5)
+    const rotation = Math.random() > 0.5 ? random(3, 6) : -random(3, 6)
+    drawnCardTransform = `translateX(${drawnCardX}) translateY(${drawnCardY}) rotate(${
+      rotation + degrees * direction
+    }deg)`
     element.animate(
       [
         { transform: `translateX(${startX}px) translateY(${startY}px) rotate(0deg)` },
         {
-          transform: `translateX(${drawnCardX}) translateY(${drawnCardY}) rotate(${
-            curretRotation + degrees * direction
-          }deg)`
+          transform: drawnCardTransform
         }
       ],
       {
@@ -61,13 +62,12 @@
 
   const playExitAnimation = () => {
     const element = document.getElementById('drawn-card')
-    const style = window.getComputedStyle(element)
-    const startX = style.left
-    const startY = style.top
     const duration = 500
     const animation = element.animate(
       [
-        { transform: `translateX(35%) translateY(-380px) rotate(${curretRotation}deg)` },
+        {
+          transform: drawnCardTransform
+        },
         {
           transform: `translateX(2000px) translateY(0px)`
         }
@@ -81,7 +81,6 @@
 
     animation.onfinish = function () {
       element.style.display = 'none'
-      // element.remove()
     }
   }
 </script>
@@ -89,7 +88,7 @@
 <main>
   <h1>Idégenerator</h1>
 
-  <section id="gallery">
+  <div id="gallery">
     {#each localContentMeta || [] as category}
       <div class="deck card">
         <h2>{category.name}</h2>
@@ -102,6 +101,6 @@
         {/each}
       </div>
     {/each}
-  </section>
+  </div>
   <div id="drawn-card" class="card" on:click={handleClickDrawnCard}>{result}</div>
 </main>

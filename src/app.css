@@ -34,24 +34,26 @@ main {
 }
 
 h1 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 3.2em;
   line-height: 1.1;
-  margin-bottom: 2em;
-  color:dimgrey
+  margin-bottom: 1em;
 }
 
-h2 {
+h1, h2 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:dimgrey;
 }
 
 #gallery{
   display: flex;
 	flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:dimgrey;
   padding: 2em;
   background-color: yellow;
   border: 1px solid rgba(165, 165, 0, 1);
@@ -90,11 +92,18 @@ h2 {
 }
 
 #drawn-card {
-  visibility: hidden;
   position: absolute;
-  background-color: pink;
-  width: 300px;
-  height: 450px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 2em;
+  color:black;
+  padding: 2em;
+  display:grid;
+  align-items:center;
+  visibility: hidden;
+  top: 10%;
+  width: 250px;
+  height: 375px;
+  max-width: 80vw;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
 }
 
