@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte'
   import { contentMeta, randomItemFrom } from './stores/contentStore.js'
-  import { random } from './lib/utils.js'
+  import { random, allCardImages } from './lib/utils.js'
   let localContentMeta
   let result = ''
   const drawnCardX = '30%'
@@ -14,7 +14,7 @@
 
   onMount(() => {
     const elements = document.querySelectorAll('.card')
-    const randomImage = `url("../src/assets/card-0${random(1, 5)}.jpg")`
+    const randomImage = `url("${allCardImages[random(0, allCardImages.length - 1)]}")`
 
     elements.forEach((element) => {
       // @ts-ignore
@@ -94,9 +94,9 @@
         <h2>{category.name}</h2>
         {#each category.labels || [] as label}
           <div>
-            <a class="categoryLabel" name={label} on:click={handleClickLabel(category.name, label)}
-              >{label}</a
-            >
+            <a class="categoryLabel" name={label} on:click={handleClickLabel(category.name, label)}>
+              {label}
+            </a>
           </div>
         {/each}
       </div>

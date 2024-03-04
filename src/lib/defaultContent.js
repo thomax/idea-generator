@@ -49,23 +49,23 @@ export const defaultContent = [
       {
         label: 'Substantiv',
         alternatives: [
-          'arter', 'atmosfære', 'bier',
-          'byer', 'bølger', 'drivhuseffekt',
-          'eksos', 'jordklode', 'belastning',
-          'co2', 'jungel', 'konsekvens',
-          'korallrev', 'kulde', 'lavtrykk',
-          'luft', 'sur', 'nedbør',
-          'sykdom', 'søppel', 'søppel-sortering',
-          'teknikk', 'panda', 'plante',
-          'plast', 'syklus', 'temperatur',
-          'poler', 'promp', 'rase',
-          'regn', 'restavfall', 'risiko',
-          'samarbeid', 'varme', 'varmegrader',
-          'vind', 'regnskog', 'vanndamp',
-          'vær', 'våtmark', 'økning',
-          'økologisk', 'mat', 'is',
-          'isbjørn', 'fauna', 'fabrikker',
-          'energi', 'ørken'
+          'Arter', 'Atmosfære', 'Bier',
+          'Byer', 'Bølger', 'Drivhuseffekt',
+          'Eksos', 'Jordklode', 'Belastning',
+          'Co2', 'Jungel', 'Konsekvens',
+          'Korallrev', 'Kulde', 'Lavtrykk',
+          'Luft', 'Sur', 'Nedbør',
+          'Sykdom', 'Søppel', 'Søppel-sortering',
+          'Teknikk', 'Panda', 'Plante',
+          'Plast', 'Syklus', 'Temperatur',
+          'Poler', 'Promp', 'Rase',
+          'Regn', 'Restavfall', 'Risiko',
+          'Samarbeid', 'Varme', 'Varmegrader',
+          'Vind', 'Regnskog', 'Vanndamp',
+          'Vær', 'Våtmark', 'Økning',
+          'Økologisk', 'Mat', 'Is',
+          'Isbjørn', 'Fauna', 'Fabrikker',
+          'Energi', 'Ørken'
         ]
       }
     ]
