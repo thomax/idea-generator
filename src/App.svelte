@@ -4,7 +4,7 @@
   import { random, allCardImages } from './lib/utils.js'
   let localContentMeta
   let result = ''
-  const drawnCardX = '30%'
+  const drawnCardX = '10%'
   const drawnCardY = '0px'
   let drawnCardTransform = ''
 
