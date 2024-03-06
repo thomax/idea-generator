@@ -13,19 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-
-
 body {
   margin: 0;
   display: flex;
   place-items: top;
   min-width: 320px;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
   min-height: 100vh;
 }
 
@@ -55,7 +54,7 @@ h1, h2 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color:dimgrey;
   padding: 2em;
-  background-color: yellow;
+  background-color: white;
   border: 1px solid rgba(165, 165, 0, 1);
   border-radius: 8px;
   width: 200px;
@@ -81,7 +80,7 @@ h1, h2 {
 .categoryLabel {
   color: #213547;
   padding: 0.2em 0.4em;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: 500;
   margin-bottom: 0.5em;
 }
@@ -94,11 +93,11 @@ h1, h2 {
 #drawn-card {
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 2em;
+  font-size: 2.2em;
   color:black;
   padding: 2em;
   display:grid;
-  align-items:center;
+  align-items: center;
   visibility: hidden;
   top: 10%;
   width: 250px;
@@ -107,6 +106,24 @@ h1, h2 {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0 var(--space-3);
+}
+
+.footer .footer__text {
+	font-size: var(--font-size-1);
+	line-height: var(--line-height-1);
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	color: rgba(0, 0, 0, .2);
+}
+
+.footer__text a {
+  color: rgba(0, 0, 0, .2);
+}
 
 @media (prefers-color-scheme: light) {
   :root {

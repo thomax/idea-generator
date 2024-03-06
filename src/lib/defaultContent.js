@@ -52,7 +52,7 @@ export const defaultContent = [
           'Arter', 'Atmosfære', 'Bier',
           'Byer', 'Bølger', 'Drivhuseffekt',
           'Eksos', 'Jordklode', 'Belastning',
-          'Co2', 'Jungel', 'Konsekvens',
+          'CO₂', 'Jungel', 'Konsekvens',
           'Korallrev', 'Kulde', 'Lavtrykk',
           'Luft', 'Sur', 'Nedbør',
           'Sykdom', 'Søppel', 'Søppel-sortering',

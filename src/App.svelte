@@ -1,25 +1,24 @@
 <script>
+  // @ts-nocheck
+
   import { onMount } from 'svelte'
+  import Switch from './lib/Switch.svelte'
   import { contentMeta, randomItemFrom } from './stores/contentStore.js'
   import { random, allCardImages } from './lib/utils.js'
-  let localContentMeta
-  let result = ''
+
   const drawnCardX = '10%'
   const drawnCardY = '0px'
+  let localContentMeta
+  let result = ''
   let drawnCardTransform = ''
+  let isFancyModeEnabled = true
 
   contentMeta.subscribe((updatedContentMeta) => {
     localContentMeta = updatedContentMeta
   })
 
   onMount(() => {
-    const elements = document.querySelectorAll('.card')
-    const randomImage = `url("${allCardImages[random(0, allCardImages.length - 1)]}")`
-
-    elements.forEach((element) => {
-      // @ts-ignore
-      element.style.backgroundImage = randomImage
-    })
+    applyStylesAccordingToMode()
   })
 
   function handleClickLabel(category, label) {
@@ -29,6 +28,32 @@
 
   function handleClickDrawnCard() {
     playExitAnimation()
+  }
+
+  function applyStylesAccordingToMode() {
+    const cardElements = document.querySelectorAll('.card')
+    const headerElements = document.querySelectorAll('h1, h2')
+    cardElements.forEach((element) => {
+      if (isFancyModeEnabled) {
+        const randomImage = `url("${allCardImages[random(0, allCardImages.length - 1)]}")`
+        cardElements.forEach((element) => {
+          element.style.fontFamily = 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'
+          element.style.backgroundImage = randomImage
+        })
+      } else {
+        cardElements.forEach((element) => {
+          element.style.fontFamily = 'Helvetica, Arial, sans-serif'
+          element.style.backgroundImage = 'none'
+        })
+      }
+    })
+    headerElements.forEach((element) => {
+      if (isFancyModeEnabled) {
+        element.style.fontFamily = 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'
+      } else {
+        element.style.fontFamily = 'Helvetica, Arial, sans-serif'
+      }
+    })
   }
 
   const playEnterAnimation = () => {
@@ -94,9 +119,9 @@
         <h2>{category.name}</h2>
         {#each category.labels || [] as label}
           <div>
-            <a class="categoryLabel" name={label} on:click={handleClickLabel(category.name, label)}>
+            <span class="categoryLabel" on:click={handleClickLabel(category.name, label)}>
               {label}
-            </a>
+            </span>
           </div>
         {/each}
       </div>
@@ -104,3 +129,17 @@
   </div>
   <div id="drawn-card" class="card" on:click={handleClickDrawnCard}>{result}</div>
 </main>
+
+<footer class="footer">
+  <Switch
+    bind:value={isFancyModeEnabled}
+    toggleFunction={applyStylesAccordingToMode}
+    label="Fancy mode"
+    fontSize={14}
+  />
+  <p class="footer__text">
+    Laget av <a href="https://github.com/thomax/idea-generator" target="_blank">thomax</a> - innhold
+    kopiert med tillateslse fra
+    <a href="https://skaperskolen.no" target="_blank">skaperskolen.no</a>
+  </p>
+</footer>
